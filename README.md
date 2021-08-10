@@ -8,54 +8,51 @@ A simple tool to extract the contentful-cli export file into a more manageable w
 [![License](https://img.shields.io/npm/l/@simonbetton/contentful-import-workflow-manager.svg)](https://github.com/simonbetton/contentful-import-workflow-manager/blob/main/package.json)
 
 <!-- toc -->
-
-- [Usage](#usage)
-- [Commands](#commands)
+* [@simonbetton/contentful-import-workflow-manager](#simonbettoncontentful-import-workflow-manager)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g @simonbetton/contentful-import-workflow-manager
 $ contentful-import-workflow-manager COMMAND
 running command...
 $ contentful-import-workflow-manager (-v|--version|version)
-@simonbetton/contentful-import-workflow-manager/0.0.1 darwin-x64 node-v15.4.0
+@simonbetton/contentful-import-workflow-manager/0.0.2 darwin-x64 node-v15.4.0
 $ contentful-import-workflow-manager --help [COMMAND]
 USAGE
   $ contentful-import-workflow-manager COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`contentful-import-workflow-manager bundle`](#contentful-import-workflow-manager-bundle)
-- [`contentful-import-workflow-manager configure`](#contentful-import-workflow-manager-configure)
-- [`contentful-import-workflow-manager expand`](#contentful-import-workflow-manager-expand)
-- [`contentful-import-workflow-manager export`](#contentful-import-workflow-manager-export)
-- [`contentful-import-workflow-manager help [COMMAND]`](#contentful-import-workflow-manager-help-command)
-- [`contentful-import-workflow-manager import`](#contentful-import-workflow-manager-import)
+* [`contentful-import-workflow-manager bundle`](#contentful-import-workflow-manager-bundle)
+* [`contentful-import-workflow-manager configure`](#contentful-import-workflow-manager-configure)
+* [`contentful-import-workflow-manager expand`](#contentful-import-workflow-manager-expand)
+* [`contentful-import-workflow-manager export`](#contentful-import-workflow-manager-export)
+* [`contentful-import-workflow-manager help [COMMAND]`](#contentful-import-workflow-manager-help-command)
+* [`contentful-import-workflow-manager import`](#contentful-import-workflow-manager-import)
 
 ## `contentful-import-workflow-manager bundle`
 
-A wrapper for the contentful-cli export command
+Creates an import JSON file
 
 ```
 USAGE
   $ contentful-import-workflow-manager bundle
 ```
 
-_See code: [src/commands/bundle.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.1/src/commands/bundle.ts)_
+_See code: [src/commands/bundle.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.2/src/commands/bundle.ts)_
 
 ## `contentful-import-workflow-manager configure`
 
-Manage Contentful configuration
+Configure Contentful to import and export
 
 ```
 USAGE
@@ -69,7 +66,7 @@ OPTIONS
   -t, --management_token=management_token  management token
 ```
 
-_See code: [src/commands/configure.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.1/src/commands/configure.ts)_
+_See code: [src/commands/configure.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.2/src/commands/configure.ts)_
 
 ## `contentful-import-workflow-manager expand`
 
@@ -83,7 +80,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/expand.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.1/src/commands/expand.ts)_
+_See code: [src/commands/expand.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.2/src/commands/expand.ts)_
 
 ## `contentful-import-workflow-manager export`
 
@@ -98,7 +95,7 @@ OPTIONS
   -s, --space_id=space_id  space ID
 ```
 
-_See code: [src/commands/export.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.1/src/commands/export.ts)_
+_See code: [src/commands/export.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.2/src/commands/export.ts)_
 
 ## `contentful-import-workflow-manager help [COMMAND]`
 
@@ -119,16 +116,17 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2
 
 ## `contentful-import-workflow-manager import`
 
-A wrapper for the contentful-cli export command
+A wrapper for the contentful-cli import command
 
 ```
 USAGE
   $ contentful-import-workflow-manager import
 
 OPTIONS
-  -h, --help  show CLI help
+  -f, --file=file          import JSON file
+  -h, --help               show CLI help
+  -s, --space_id=space_id  space ID
 ```
 
-_See code: [src/commands/import.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.1/src/commands/import.ts)_
-
+_See code: [src/commands/import.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.2/src/commands/import.ts)_
 <!-- commandsstop -->

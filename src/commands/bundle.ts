@@ -6,7 +6,7 @@ import chalk = require("chalk");
 import { getJsonExport, pack } from "../utils";
 
 export default class Bundle extends Command {
-  static description = "A wrapper for the contentful-cli export command";
+  static description = "Creates an import JSON file";
 
   async run() {
     // Glob the export json files.
@@ -26,11 +26,9 @@ export default class Bundle extends Command {
         getJsonExport(files.entries),
         getJsonExport(files.assets),
       ]).then((contents) => {
-        const combine: any = [];
+        const combine: any = {};
         contents.map((item, key) => {
-          combine.push({
-            [Object.keys(files)[key]]: pack(item),
-          });
+          combine[Object.keys(files)[key]] = pack(item);
         });
 
         const json = prettier.format(JSON.stringify(combine), {

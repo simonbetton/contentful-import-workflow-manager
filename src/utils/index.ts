@@ -26,19 +26,19 @@ export function generateExportFileName(json: Entry<any>) {
 }
 
 // Strip out the unnecessary data.
-export function cleanJson(json: Entry<any> | ContentType) {
+export function cleanJson(json: Entry<any> | ContentType | any) {
   delete json.sys.space;
   // delete json.sys.createdAt;
-  // delete json.sys.updatedAt;
-  // delete json.sys.environment;
+  delete json.sys.updatedAt;
+  delete json.sys.environment;
   // delete json.sys.publishedVersion;
-  // delete json.sys.publishedAt;
-  // delete json.sys.firstPublishedAt;
-  // delete json.sys.createdBy;
-  // delete json.sys.updatedBy;
-  // delete json.sys.publishedCounter;
-  // delete json.sys.version;
-  // delete json.sys.publishedBy;
+  delete json.sys.publishedAt;
+  delete json.sys.firstPublishedAt;
+  delete json.sys.createdBy;
+  delete json.sys.updatedBy;
+  delete json.sys.publishedCounter;
+  delete json.sys.version;
+  delete json.sys.publishedBy;
   return json;
 }
 

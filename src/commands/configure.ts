@@ -3,7 +3,7 @@ import Config from "conf";
 import * as os from "os";
 
 export default class Configure extends Command {
-  static description = "Manage Contentful configuration";
+  static description = "Configure Contentful to import and export";
 
   static flags = {
     help: flags.help({ char: "h" }),

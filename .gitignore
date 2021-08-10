@@ -1,0 +1,10 @@
+*-debug.log
+*-error.log
+contentful-*.json
+exports/*
+/.nyc_output
+/dist
+/lib
+/package-lock.json
+/tmp
+node_modules

@@ -19,7 +19,7 @@ $ npm install -g @simonbetton/contentful-import-workflow-manager
 $ contentful-import-workflow-manager COMMAND
 running command...
 $ contentful-import-workflow-manager (-v|--version|version)
-@simonbetton/contentful-import-workflow-manager/0.0.0 darwin-x64 node-v15.4.0
+@simonbetton/contentful-import-workflow-manager/0.0.1 darwin-x64 node-v15.4.0
 $ contentful-import-workflow-manager --help [COMMAND]
 USAGE
   $ contentful-import-workflow-manager COMMAND
@@ -44,7 +44,7 @@ USAGE
   $ contentful-import-workflow-manager bundle
 ```
 
-_See code: [src/commands/bundle.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.0/src/commands/bundle.ts)_
+_See code: [src/commands/bundle.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.1/src/commands/bundle.ts)_
 
 ## `contentful-import-workflow-manager configure`
 
@@ -62,7 +62,7 @@ OPTIONS
   -t, --management_token=management_token  management token
 ```
 
-_See code: [src/commands/configure.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.0/src/commands/configure.ts)_
+_See code: [src/commands/configure.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.1/src/commands/configure.ts)_
 
 ## `contentful-import-workflow-manager expand`
 
@@ -76,7 +76,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/expand.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.0/src/commands/expand.ts)_
+_See code: [src/commands/expand.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.1/src/commands/expand.ts)_
 
 ## `contentful-import-workflow-manager export`
 
@@ -91,7 +91,7 @@ OPTIONS
   -s, --space_id=space_id  space ID
 ```
 
-_See code: [src/commands/export.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.0/src/commands/export.ts)_
+_See code: [src/commands/export.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.1/src/commands/export.ts)_
 
 ## `contentful-import-workflow-manager help [COMMAND]`
 
@@ -122,5 +122,5 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/import.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.0/src/commands/import.ts)_
+_See code: [src/commands/import.ts](https://github.com/simonbetton/contentful-import-workflow-manager/blob/v0.0.1/src/commands/import.ts)_
 <!-- commandsstop -->

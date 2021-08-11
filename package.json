@@ -1,7 +1,7 @@
 {
   "name": "@simonbetton/contentful-import-workflow-manager",
   "description": "A simple tool to extract the contentful-cli export file into a more manageable workflow.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Simon Betton (https://github.com/simonbetton)",
   "bin": {
     "contentful-import-workflow-manager": "./bin/run",

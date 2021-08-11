@@ -4,7 +4,6 @@
   "version": "1.0.1",
   "author": "Simon Betton (https://github.com/simonbetton)",
   "bin": {
-    "contentful-import-workflow-manager": "./bin/run",
     "ciwm": "./bin/run"
   },
   "bugs": "https://github.com/simonbetton/contentful-import-workflow-manager/issues",
@@ -64,7 +63,7 @@
   "main": "lib/index.js",
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "contentful-import-workflow-manager",
+    "bin": "ciwm",
     "plugins": [
       "@oclif/plugin-help"
     ]

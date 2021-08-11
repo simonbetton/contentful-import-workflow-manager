@@ -8,3 +8,4 @@ exports/*
 /package-lock.json
 /tmp
 node_modules
+@types/generated/*

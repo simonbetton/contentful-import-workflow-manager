@@ -1,6 +1,6 @@
 import { Command, flags } from "@oclif/command";
 import Config from "conf";
-import * as os from "os";
+import { EOL } from "os";
 
 export default class Configure extends Command {
   static description = "Configure Contentful to import and export";
@@ -20,6 +20,13 @@ export default class Configure extends Command {
       char: "t",
       description: "management token",
     }),
+  };
+
+  print = (value: any) => {
+    if (typeof value === "object") {
+      value = JSON.stringify(value);
+    }
+    process.stdout.write(value);
   };
 
   async run() {
@@ -48,17 +55,10 @@ export default class Configure extends Command {
         config.set("environment_id", flags.environment_id);
         config.set("management_token", flags.management_token);
       }
-      this.print(`space_id: ${flags.space_id}` + os.EOL);
-      for (let c of config) {
-        this.print(`${c[0]}: ${c[1]}` + os.EOL);
+      this.print(`space_id: ${flags.space_id}` + EOL);
+      for (const c of config) {
+        this.print(`${c[0]}: ${c[1]}` + EOL);
       }
     }
-  }
-
-  private print(value: any) {
-    if (typeof value === "object") {
-      value = JSON.stringify(value);
-    }
-    process.stdout.write(value);
   }
 }

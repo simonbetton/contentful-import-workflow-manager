@@ -1,3 +1,5 @@
 {
-  "extends": ["recommended/node"]
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["oclif"],
+  "rules": {}
 }

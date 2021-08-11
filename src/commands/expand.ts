@@ -1,18 +1,18 @@
 import { Command, flags } from "@oclif/command";
 import type { Entry } from "contentful";
-import * as fs from "fs";
-import * as path from "path";
+import { mkdir, writeFile as fs_writeFile, readFile } from "fs";
+import { basename, resolve } from "path";
 import { glob } from "glob";
-import * as prettier from "prettier";
-import * as util from "util";
+import { format } from "prettier";
+import { promisify } from "util";
 import {
   cleanJson,
   generateExportDirName,
   generateExportFileName,
 } from "../utils";
-import chalk = require("chalk");
-const makeDir = util.promisify(fs.mkdir);
-const writeFile = util.promisify(fs.writeFile);
+import { yellow } from "chalk";
+const makeDir = promisify(mkdir);
+const writeFile = promisify(fs_writeFile);
 
 export default class Expand extends Command {
   static description =
@@ -25,9 +25,9 @@ export default class Expand extends Command {
   // Create a directory for each section of the export e.g. contentTypes, entries, assets etc.
   async create_directories(json: Object, directory: string) {
     return await Promise.all(
-      Object.keys(json).map((item) => {
-        return makeDir(`${directory}/${item}`, { recursive: true });
-      })
+      Object.keys(json).map((item) =>
+        makeDir(`${directory}/${item}`, { recursive: true })
+      )
     );
   }
 
@@ -37,12 +37,12 @@ export default class Expand extends Command {
 
   getExportDirectory(filename: string) {
     const directory = generateExportDirName(
-      ["exports", path.basename(filename)].join("/")
+      ["exports", basename(filename)].join("/")
     );
 
     this.log(
-      `The export has been unpacked in the following directory: \n ${chalk.yellow(
-        path.resolve(directory)
+      `The export has been unpacked in the following directory: \n ${yellow(
+        resolve(directory)
       )}`
     );
 
@@ -51,7 +51,7 @@ export default class Expand extends Command {
 
   createJsonFile(directory: string, collection: string, data: Entry<any>) {
     const filename = generateExportFileName(data);
-    const json = prettier.format(JSON.stringify(cleanJson(data)), {
+    const json = format(JSON.stringify(cleanJson(data)), {
       semi: false,
       parser: "json",
     });
@@ -61,11 +61,11 @@ export default class Expand extends Command {
   async run() {
     // Glob the export json files.
     const exportFiles = glob.sync(`contentful-export-*.json`);
-    console.log(`${chalk.yellow(`${exportFiles.length} export files found`)}`);
+    console.log(`${yellow(`${exportFiles.length} export files found`)}`);
 
     // For each export, let's create a directory for it and run through the unpacking of the export.
     for (const filename of exportFiles) {
-      fs.readFile(filename, (error, content) => {
+      readFile(filename, (error, content) => {
         if (error) throw error;
 
         const directory = this.getExportDirectory(filename);
@@ -76,13 +76,12 @@ export default class Expand extends Command {
           .then(() => {
             const collections = Object.keys(json);
             collections.map((collection) => {
-              (async () => {
-                return await Promise.all(
-                  json[collection].map((data: any) => {
-                    return this.createJsonFile(directory, collection, data);
-                  })
-                );
-              })();
+              (async () =>
+                await Promise.all(
+                  json[collection].map((data: any) =>
+                    this.createJsonFile(directory, collection, data)
+                  )
+                ))();
             });
           })
           .catch((err: any) => this.log(err));
